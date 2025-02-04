@@ -18,4 +18,7 @@ filtered_movies_dict = {movie_id: full_dict[movie_id] for movie_id in valid_ids 
 
 # Фильтрация списка фильмов на основе valid_ids c использованием генератора словарей
 
-print(filtered_movies_dict)
+directors = {movie['director'] for movie in filtered_movies_dict.values()}
+# Создание множества уникальных значений ключа 'director' с помощью set comprehension
+
+print(directors)
