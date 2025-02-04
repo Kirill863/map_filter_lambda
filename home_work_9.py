@@ -26,3 +26,15 @@ full_dict_copy = {
     for movie_id, movie in full_dict.items()
 }
 # Создание копии словаря с преобразованием значений 'year' в строку с помощью dict comprehension
+
+
+
+filtered_movies = filter(lambda movie: movie['title'].startswith('Ч'), full_dict.values())
+# Использование filter для получения фильмов, названия которых начинаются на букву 'Ч'
+
+
+sorted_full_dict = {
+    movie_id: movie for movie_id, movie in sorted(full_dict.items(), key=lambda item: item[1]['director'])
+}
+# Сортировка словаря по значению ключа 'director' в алфавитном порядке
+print(sorted_full_dict)
