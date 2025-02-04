@@ -21,4 +21,8 @@ filtered_movies_dict = {movie_id: full_dict[movie_id] for movie_id in valid_ids 
 directors = {movie['director'] for movie in filtered_movies_dict.values()}
 # Создание множества уникальных значений ключа 'director' с помощью set comprehension
 
-print(directors)
+full_dict_copy = {
+    movie_id: {k: (str(v) if k == 'year' else v) for k, v in movie.items()}
+    for movie_id, movie in full_dict.items()
+}
+# Создание копии словаря с преобразованием значений 'year' в строку с помощью dict comprehension
