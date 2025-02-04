@@ -38,3 +38,18 @@ sorted_full_dict = {
 }
 # Сортировка словаря по значению ключа 'director' в алфавитном порядке
 print(sorted_full_dict)
+
+
+
+
+sorted_full_dict = {
+    movie_id: movie for movie_id, movie in sorted(
+        full_dict.items(),
+        key=lambda item: (
+            item[1]['director'] if item[1]['director'] is not None else '',
+            item[1]['title'] if item[1]['title'] is not None else ''
+        )
+    )
+}
+# Сортировка словаря по значению ключа 'director' в алфавитном порядке и по значению 'title' в алфавитном порядке
+print(sorted_full_dict)
