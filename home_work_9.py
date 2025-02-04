@@ -1,4 +1,5 @@
 from marvel import full_dict
+import pprint
 
 def user_value(value):
 #  функция для превращения, вводимой пользователем строки в список
@@ -37,7 +38,8 @@ sorted_full_dict = {
     movie_id: movie for movie_id, movie in sorted(full_dict.items(), key=lambda item: item[1]['director'])
 }
 # Сортировка словаря по значению ключа 'director' в алфавитном порядке
-print(sorted_full_dict)
+pprint.pprint(sorted_full_dict)
+print("\nЗадание отсортировать словарь по одному параметру по именам режисеров в алфавитном порядке")
 
 
 
@@ -52,9 +54,21 @@ sorted_full_dict = {
     )
 }
 # Сортировка словаря по значению ключа 'director' в алфавитном порядке и по значению 'title' в алфавитном порядке
-print(sorted_full_dict)
+pprint.pprint(sorted_full_dict)
+print("\nЗадание отсортировать словарь по двум параметрам (по именам режисеров в алфавитном порядки и по названию в алфавитном порядке)")
 
 
-sorted_filtered_full_dict = {movie_id: movie for movie_id, movie in sorted(filter(lambda item: item[1]['director'] is not None and item[1]['title'] is not None, full_dict.items()), key=lambda item: (item[1]['director'], item[1]['title']))}
+sorted_filtered_full_dict = {
+    movie_id: movie for movie_id, movie in sorted(
+        filter(lambda item: item[1]['director'] is not None and item[1]['title'] is not None, full_dict.items()),
+        key=lambda item: (item[1]['director'], item[1]['title'])
+    )
+}
 # Фильтрация и сортировка словаря с использованием filter и sorted
-print(sorted_filtered_full_dict)
+
+pprint.pprint(sorted_filtered_full_dict)
+
+# Красивый вывод результатов с использованием pprint
+
+print("\nЗадание: Отфильтровать и отсортировать словарь `full_dict` по значению `director` в алфавитном порядке и по значению `title` в алфавитном порядке.")
+# Подпись о выполненном задании
